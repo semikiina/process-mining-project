@@ -1,6 +1,7 @@
 # Generated output folders
 kpi/
 model/
+data/
 
 # Python
 __pycache__/
