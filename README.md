@@ -4,7 +4,20 @@ A complete process mining analysis pipeline for Novo Nordisk's clinical trial da
 
 ## Quick Start
 
-### 1. Install Dependencies
+### 1. Prepare Your Data
+
+Create a `data/` folder in this directory and add your four CSV files:
+
+```bash
+mkdir -p data
+# Copy your CSVs into data/:
+# - Task.csv
+# - TM.csv
+# - IM_PD.csv
+# - EL_IM_PD.csv
+```
+
+### 2. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -16,7 +29,7 @@ pip install -r requirements.txt
 - `matplotlib` - Visualization
 - `pm4py` - Process mining
 
-### 2. Run the Analysis
+### 3. Run the Analysis
 
 ```bash
 python main.py
@@ -112,12 +125,31 @@ Creates publication-ready visualizations:
 
 ## Data Requirements
 
-The analysis expects four CSV files in the `data/` folder:
+**You must provide** four CSV files in the `data/` folder. These are NOT included in the repository (they are gitignored for size reasons).
+
+### Expected CSV Files
 
 - **Task.csv** - Task records with: ID, IssueObject_ID, ProtocolDeviation_ID, CreatedDate, CompletionDate, State, Category, Study, Site, etc.
 - **TM.csv** - Task Monitoring follow-ups (same schema as Task.csv)
 - **IM_PD.csv** - Issues and Protocol Deviations with: ID, Identifier, Name, LifecycleState, CreatedDate, ResolvedDate, Severity, Category, etc.
 - **EL_IM_PD.csv** - Event log with: Id (event ID), Lead Object Id, Task Id, TaskMonitoringFollowUp Id, Timestamp, etc.
+
+### Setup Example
+
+```bash
+# From the project root directory:
+mkdir -p data
+cp /path/to/your/Task.csv data/
+cp /path/to/your/TM.csv data/
+cp /path/to/your/IM_PD.csv data/
+cp /path/to/your/EL_IM_PD.csv data/
+
+# Verify all files are present:
+ls data/
+# Should output: EL_IM_PD.csv  IM_PD.csv  Task.csv  TM.csv
+```
+
+Then run `python main.py` to begin the analysis.
 
 ## Troubleshooting
 
