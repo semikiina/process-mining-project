@@ -214,22 +214,4 @@ Use `python <script> --help` for full options.
 - Compares performance across sites, studies, categories, severity
 - Highlights outliers and performance leaders
 
-## Development Notes
 
-The pipeline is built for reproducibility:
-- All random seeds are fixed for deterministic output
-- Each step is independent (can re-run individual steps)
-- Generated outputs are overwritten automatically
-- No destructive modifications to source data
-
-To extend the analysis:
-1. Add new steps as separate Python files
-2. Update `main.py` to include the new step
-3. Document the script's purpose and outputs
-4. Add the new step to this README
-
-## Support
-
-For questions about the analysis methodology or data interpretation, refer to the accompanying project documentation and research question definitions.
-# process-mining-project
-# process-mining-project
