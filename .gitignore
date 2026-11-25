@@ -2,6 +2,7 @@
 kpi/
 model/
 data/
+rq5/
 
 # Python
 __pycache__/
