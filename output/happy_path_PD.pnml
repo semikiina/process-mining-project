@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="happy_path_PD" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text>happy_path_PD</text>
+    </name>
+    <page id="n0">
+      <place id="l2">
+        <name>
+          <text>l2</text>
+        </name>
+      </place>
+      <place id="sink">
+        <name>
+          <text>sink</text>
+        </name>
+      </place>
+      <place id="l4">
+        <name>
+          <text>l4</text>
+        </name>
+      </place>
+      <place id="l5">
+        <name>
+          <text>l5</text>
+        </name>
+      </place>
+      <place id="t2">
+        <name>
+          <text>t2</text>
+        </name>
+      </place>
+      <place id="t3">
+        <name>
+          <text>t3</text>
+        </name>
+      </place>
+      <place id="t4">
+        <name>
+          <text>t4</text>
+        </name>
+      </place>
+      <place id="tm1">
+        <name>
+          <text>tm1</text>
+        </name>
+      </place>
+      <place id="tm2">
+        <name>
+          <text>tm2</text>
+        </name>
+      </place>
+      <place id="tm3">
+        <name>
+          <text>tm3</text>
+        </name>
+      </place>
+      <place id="source">
+        <name>
+          <text>source</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="l1">
+        <name>
+          <text>l1</text>
+        </name>
+      </place>
+      <place id="p1">
+        <name>
+          <text>p1</text>
+        </name>
+      </place>
+      <place id="l3">
+        <name>
+          <text>l3</text>
+        </name>
+      </place>
+      <place id="t1">
+        <name>
+          <text>t1</text>
+        </name>
+      </place>
+      <place id="p_join">
+        <name>
+          <text>p_join</text>
+        </name>
+      </place>
+      <transition id="CreateProtocolDeviation">
+        <name>
+          <text>CreateProtocolDeviation</text>
+        </name>
+      </transition>
+      <transition id="ImplementProtocolDeviation">
+        <name>
+          <text>ImplementProtocolDeviation</text>
+        </name>
+      </transition>
+      <transition id="TaskCreated">
+        <name>
+          <text>TaskCreated</text>
+        </name>
+      </transition>
+      <transition id="TaskChangeCompletionDate">
+        <name>
+          <text>TaskChangeCompletionDate</text>
+        </name>
+      </transition>
+      <transition id="TaskClosed">
+        <name>
+          <text>TaskClosed</text>
+        </name>
+      </transition>
+      <transition id="skip_task">
+        <name>
+          <text>skip_task</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="4a9d36e4-6639-4633-b4d8-10f896bc7eba"/>
+      </transition>
+      <transition id="CloseTaskMonitoringItem">
+        <name>
+          <text>CloseTaskMonitoringItem</text>
+        </name>
+      </transition>
+      <transition id="and_join">
+        <name>
+          <text>and_join</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="cbcab0e9-e88a-43bb-8ba4-97e0544bd74c"/>
+      </transition>
+      <transition id="IdentifyProtocolDeviation">
+        <name>
+          <text>IdentifyProtocolDeviation</text>
+        </name>
+      </transition>
+      <transition id="PDChangeCorrectionDate">
+        <name>
+          <text>PDChangeCorrectionDate</text>
+        </name>
+      </transition>
+      <transition id="PDChangeCorrectiveAction">
+        <name>
+          <text>PDChangeCorrectiveAction</text>
+        </name>
+      </transition>
+      <transition id="ReviewProtocolDeviation">
+        <name>
+          <text>ReviewProtocolDeviation</text>
+        </name>
+      </transition>
+      <transition id="CreateTaskMonitoringItem">
+        <name>
+          <text>CreateTaskMonitoringItem</text>
+        </name>
+      </transition>
+      <transition id="skip_task_monitoring">
+        <name>
+          <text>skip_task_monitoring</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="1ae31888-c217-480f-81b7-5a37be43e1e7"/>
+      </transition>
+      <transition id="FinaliseProtocolDeviation">
+        <name>
+          <text>FinaliseProtocolDeviation</text>
+        </name>
+      </transition>
+      <arc id="4704637184" source="CreateProtocolDeviation" target="l1"/>
+      <arc id="4704642176" source="IdentifyProtocolDeviation" target="p1"/>
+      <arc id="4704691712" source="t2" target="TaskChangeCompletionDate"/>
+      <arc id="4704648464" source="source" target="IdentifyProtocolDeviation"/>
+      <arc id="4704633872" source="l2" target="PDChangeCorrectiveAction"/>
+      <arc id="4704684176" source="skip_task" target="t4"/>
+      <arc id="4704690320" source="CloseTaskMonitoringItem" target="tm3"/>
+      <arc id="4704697232" source="tm3" target="and_join"/>
+      <arc id="4704641312" source="p1" target="CreateProtocolDeviation"/>
+      <arc id="4704643616" source="l1" target="PDChangeCorrectionDate"/>
+      <arc id="4704646304" source="PDChangeCorrectiveAction" target="l3"/>
+      <arc id="4704690080" source="ReviewProtocolDeviation" target="l4"/>
+      <arc id="4704685856" source="TaskChangeCompletionDate" target="t3"/>
+      <arc id="4704697376" source="t3" target="TaskClosed"/>
+      <arc id="4704693536" source="t1" target="skip_task"/>
+      <arc id="4704688544" source="and_join" target="p_join"/>
+      <arc id="4704692528" source="l4" target="ImplementProtocolDeviation"/>
+      <arc id="4704690992" source="ImplementProtocolDeviation" target="l5"/>
+      <arc id="4704697520" source="TaskClosed" target="t4"/>
+      <arc id="4704684464" source="CreateTaskMonitoringItem" target="tm2"/>
+      <arc id="4704634304" source="PDChangeCorrectionDate" target="l2"/>
+      <arc id="4704646208" source="l3" target="ReviewProtocolDeviation"/>
+      <arc id="4704687680" source="tm2" target="CloseTaskMonitoringItem"/>
+      <arc id="4704694592" source="tm1" target="skip_task_monitoring"/>
+      <arc id="4704694736" source="CreateProtocolDeviation" target="t1"/>
+      <arc id="4704689360" source="skip_task_monitoring" target="tm3"/>
+      <arc id="4704698336" source="CreateProtocolDeviation" target="tm1"/>
+      <arc id="4704696416" source="tm1" target="CreateTaskMonitoringItem"/>
+      <arc id="4704690032" source="t1" target="TaskCreated"/>
+      <arc id="4704693104" source="TaskCreated" target="t2"/>
+      <arc id="4704687728" source="l5" target="and_join"/>
+      <arc id="4704683120" source="t4" target="and_join"/>
+      <arc id="4704687344" source="p_join" target="FinaliseProtocolDeviation"/>
+      <arc id="4704695408" source="FinaliseProtocolDeviation" target="sink"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="sink">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>
